@@ -15,6 +15,8 @@ public class PayReq implements Serializable {
     public String noncestr;//随机字符串，不长于32位
     public String sign;//签名
 
+
+
     public PayReq() {
     }
 
