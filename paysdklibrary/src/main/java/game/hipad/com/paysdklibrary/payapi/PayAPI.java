@@ -35,15 +35,17 @@ public class PayAPI {
 
     }
     public interface PayMoneyListener{
-        public void onResp(String message);
+        public void onResp(String orderNumber,int rt);
     }
     public static class MyPayMoneyReceiver extends BroadcastReceiver{
 
         @Override
         public void onReceive(Context context, Intent intent) {
             if(intent.getAction().equals("PAY_MONEY_STATE")){
+                int rt=intent.getIntExtra("rt",-1);
+                String orderNumber=intent.getStringExtra("orderNumber");
                 if(payMoneyListener!=null){
-                    payMoneyListener.onResp("支付成功");
+                    payMoneyListener.onResp(orderNumber,rt);
                 }
             }
 

@@ -2,7 +2,6 @@ package game.hipad.com.hipadpaysdk;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -28,12 +27,10 @@ public class MainActivity extends Activity {
         request.setNoncestr("adfasdfgasdkgjasdfig");//随机字符串
         request.setSign("我是签名");
         payAPI=PayAPI.getInstance(MainActivity.this, new PayAPI.PayMoneyListener() {
-            @Override
-            public void onResp(String message) {
-                pay_btn.setText(message);
-                Log.e("tjj","=====message====="+message);
-                Toast.makeText(MainActivity.this,"支付成功",Toast.LENGTH_SHORT).show();
 
+            @Override
+            public void onResp(String orderNumber, int rt) {
+                Toast.makeText(MainActivity.this,"支付成功"+orderNumber,Toast.LENGTH_SHORT).show();
             }
         });
         pay_btn.setOnClickListener(new View.OnClickListener() {
