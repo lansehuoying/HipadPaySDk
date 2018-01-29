@@ -8,10 +8,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
 /**
  * Created by tianjunjie on 2018/1/23.
  */

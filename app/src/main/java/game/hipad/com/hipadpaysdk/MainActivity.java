@@ -2,11 +2,14 @@ package game.hipad.com.hipadpaysdk;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import game.hipad.com.paysdklibrary.bean.PayReq;
 import game.hipad.com.paysdklibrary.payapi.PayAPI;
+import game.hipad.com.paysdklibrary.util.CommonUtil;
 
 public class MainActivity extends Activity {
     private PayAPI payAPI;
@@ -22,18 +25,24 @@ public class MainActivity extends Activity {
         request.setPartnerId("1900000109");
         request.setPrepayId("1101000000140415649af9fc314aa427");
         request.setTimeStamp("1398746574");
+        request.setNoncestr("adfasdfgasdkgjasdfig");//随机字符串
         request.setSign("我是签名");
         payAPI=PayAPI.getInstance(MainActivity.this, new PayAPI.PayMoneyListener() {
             @Override
             public void onResp(String message) {
-                pay_btn.setText("微信支付成功");
-//                Toast.makeText(MainActivity.this,"支付成功，刷新界面吧",Toast.LENGTH_SHORT).show();
+                pay_btn.setText(message);
+                Log.e("tjj","=====message====="+message);
+                Toast.makeText(MainActivity.this,"支付成功",Toast.LENGTH_SHORT).show();
+
             }
         });
         pay_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                payAPI.sendReq(request);
+                if(CommonUtil.isAppInstalled(MainActivity.this)){
+                    payAPI.sendReq(request);
+                }
+
             }
         });
 

@@ -30,7 +30,7 @@ public class PayAPI {
     public static void sendReq(PayReq payReq) {
         Intent intent = new Intent();
         intent.setClassName("com.jkrm.haipai.paixin.tc", "com.jkrm.haipai.activity.GetPayInformationActivity");
-        intent.putExtra("partnerId",payReq.getPartnerId());//微信支付分配的商户号
+        intent.putExtra("prepayId",payReq.getPrepayId());//商品预支付ID
         context.startActivity(intent);
 
     }
