@@ -31,6 +31,12 @@ public class PayAPI {
         Intent intent = new Intent();
         intent.setClassName("com.jkrm.haipai.paixin.tc", "com.jkrm.haipai.activity.GetPayInformationActivity");
         intent.putExtra("prepayId",payReq.getPrepayId());//商品预支付ID
+        intent.putExtra("appId",payReq.getAppId());
+        intent.putExtra("timeStamp",payReq.getTimeStamp());
+        intent.putExtra("partnerId",payReq.getPartnerId());
+        intent.putExtra("noncestr",payReq.getNoncestr());
+        intent.putExtra("packages",payReq.getPackages());
+        intent.putExtra("sign",payReq.getSign());
         context.startActivity(intent);
 
     }

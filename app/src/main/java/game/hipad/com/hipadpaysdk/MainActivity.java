@@ -25,11 +25,13 @@ public class MainActivity extends Activity {
         request.setPrepayId("1101000000140415649af9fc314aa427");
         request.setTimeStamp("1398746574");
         request.setNoncestr("adfasdfgasdkgjasdfig");//随机字符串
+        request.setPackages("Sign=PXPay");//先固定这么写
         request.setSign("我是签名");
         payAPI=PayAPI.getInstance(MainActivity.this, new PayAPI.PayMoneyListener() {
 
             @Override
             public void onResp(String orderNumber, int rt) {
+                pay_btn.setText("支付成功");
                 Toast.makeText(MainActivity.this,"支付成功"+orderNumber,Toast.LENGTH_SHORT).show();
             }
         });
