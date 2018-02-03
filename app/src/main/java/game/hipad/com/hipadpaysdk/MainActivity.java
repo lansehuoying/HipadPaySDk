@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void onResp(String orderNumber, int rt) {
-                pay_btn.setText("支付成功");
+                pay_btn.setText("支付成功"+orderNumber);
                 Toast.makeText(MainActivity.this,"支付成功"+orderNumber,Toast.LENGTH_SHORT).show();
             }
         });

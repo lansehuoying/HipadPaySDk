@@ -29,7 +29,7 @@ public class PayAPI {
 
     public static void sendReq(PayReq payReq) {
         Intent intent = new Intent();
-        intent.setClassName("com.jkrm.haipai.paixin.tc", "com.jkrm.haipai.activity.GetPayInformationActivity");
+        intent.setClassName("com.jkrm.haipai.paixin.tc", "com.hipad.payment.activity.GetPayInformationActivity");
         intent.putExtra("prepayId",payReq.getPrepayId());//商品预支付ID
         intent.putExtra("appId",payReq.getAppId());
         intent.putExtra("timeStamp",payReq.getTimeStamp());
