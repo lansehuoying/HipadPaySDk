@@ -15,5 +15,5 @@ allprojects {
 加入依赖库
 
  dependencies {
-	         compile 'com.github.lansehuoying:HipadPaySDk:V1.0'
+	         compile 'com.github.lansehuoying:HipadPaySDk:V1.1'
 	}
